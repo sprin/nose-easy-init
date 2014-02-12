@@ -5,7 +5,7 @@ nose-easy-init
 A nose plugin, enabled by default, which executes a user-defined
 initialization function prior to nose collecting or running any tests. The
 user specifies the python module that contains the initialization function,
-``do_init``, in an environment variable.
+``main``, in an environment variable.
 
 Use one of two environment variables to specify the module:
 
@@ -21,17 +21,17 @@ Example initialization module
 
 Let's assume that we've named our initialization module ``nose_init.py`` and
 saved it in ``/path/to/my/app/tests/nose_init.py``. That file must contain a
-``do_init`` function. For example:
+``main`` function. For example:
 
 .. code-block:: python
 
     """
     Initialization script which is imported when ``nosetests`` is run.
-    The do_init function will be executed before any other application code
+    The main function will be executed before any other application code
     is imported.
     """
 
-    def do_init():
+    def main():
         """nose_easy_init will call this before each ``nosetests`` run."""
 
         setup_my_test_environment()

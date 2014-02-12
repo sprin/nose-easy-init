@@ -26,7 +26,7 @@ class NoseEasyInit(Plugin):
         self.enabled = True
 
     def begin(self):
-        """Run the user-defined initialization function ``do_init``"""
+        """Run the user-defined initialization function ``main``"""
         nose_init_module = os.environ.get('NOSE_INIT_MODULE')
         if nose_init_module:
             # Import the user's module from a python dotted-notation module
@@ -37,5 +37,5 @@ class NoseEasyInit(Plugin):
             # Import the user's module from a filesystem path
             imp.load_source('nose_init', nose_init_path)
 
-        # Run the user's ``do_init`` function
-        sys.modules[nose_init_module].do_init()
+        # Run the user's ``main`` function
+        sys.modules[nose_init_module].main()
